@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { registerObserver } from 'react-perf-devtool';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+registerObserver();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
