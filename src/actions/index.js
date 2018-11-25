@@ -8,12 +8,7 @@ export const goToRoute = route => ({
     route
 });
 
-export const putQuery = query => ({
-    type: 'PUT_QUERY',
-    query
-});
-
-export const putId = id => ({
-    type: 'PUT_ID',
+export const fetchDetails = id => ({
+    type: 'FETCH_DETAILS',
     id
 });

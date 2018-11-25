@@ -1,0 +1,51 @@
+@import '../../styles/variables.scss';
+
+$imageSize: 180px;
+.ItemList {
+    display: flex;
+    background: white;
+    align-items: center;
+    min-height: $imageSize + $separationMargin;
+    padding: $separationMargin;
+    border-radius: 2px;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    .priceContainer {
+        display: flex;
+        margin-bottom: 32px;
+        align-items: center;
+        .price {
+            color: $price;
+            font-size: 24px;
+            margin: 0;
+            text-decoration: none;
+
+        }
+        .shippingIc {
+            margin-left: 10px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+    .title {
+        font-size: 18px;
+        color: $title;
+    }
+    .ItemImg {
+        margin-right: $separationMargin;
+        width: $imageSize;
+        height: $imageSize;
+        border-radius: 4px;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        left: 24px;
+        bottom: 0;
+        height: 1px;
+        width: 94.5%;
+        border-bottom: 1px solid #eee;
+    }
+}
+

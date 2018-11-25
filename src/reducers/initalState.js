@@ -1,7 +1,6 @@
 export default {
-    query: '',
     payload: null,
-    specificItem: null,
+    details: null,
     loading: false,
     error: null
 }

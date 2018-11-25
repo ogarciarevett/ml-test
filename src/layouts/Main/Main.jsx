@@ -7,7 +7,9 @@ class Main extends Component {
         return (
             <div className={styles.Main}>
                 <NavBar />
-                {this.props.children}
+                <div className={styles.container}>
+                    {this.props.children}
+                </div>
             </div>
         );
     }

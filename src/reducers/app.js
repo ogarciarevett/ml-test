@@ -2,13 +2,6 @@ import initialState from './initalState';
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'PUT_QUERY': {
-            return {
-                ...state,
-                query: action.payload
-            }
-        }
-
         case 'FETCH_SEARCH_SUCCESS': {
             return {
                 ...state,
@@ -36,7 +29,7 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                specificItem: action.payload
+                details: action.details
             }
         }
 

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { props, defaultProps } from './Navbar.props';
+import { Link } from 'react-router-dom';
+import { props } from './Navbar.props';
 import styles from './Navbar.module.scss';
 import logo from '../../assets/Logo_ML.png';
 import icSearch from '../../assets/ic_Search.png';
 
 class NavBar extends Component {
     state = {
-        queryVal: ''
+        queryVal: this.props.searchVal || ''
     }
 
     handleOnChange = e => {
@@ -22,8 +23,10 @@ class NavBar extends Component {
 
     render() {
         return (
-            <div className={`${styles.NavBar} ${props.className}`}>
-                <img src={logo} className={styles.logo} alt="logo" />
+            <div className={`${styles.NavBar} ${this.props.className}`}>
+                <Link to="/">
+                    <img src={logo} className={styles.logo} alt="logo" />
+                </Link>
                 <form 
                     className={styles.searchForm}
                     onSubmit={this.handleOnSubmit}
@@ -31,6 +34,7 @@ class NavBar extends Component {
                     <input
                         onChange={this.handleOnChange}
                         className={styles.searchInput}
+                        value={this.state.queryVal}
                         placeholder='Nunca dejes de buscar'
                     />
                     <button 
@@ -52,6 +56,5 @@ class NavBar extends Component {
     
 
 NavBar.propTypes = props;
-NavBar.defaultProps = defaultProps;
 
 export default NavBar;
