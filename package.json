@@ -6,7 +6,6 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "storybook": "start-storybook -p 9001 -c ./config/.storybook",
     "format:js": "find src -name '*.js|jsx' | xargs -I{} ./node_modules/.bin/prettier --write --single-quote {}",
     "format:jsx": "find src -name '*.jsx' | xargs -I{} ./node_modules/.bin/prettier --write --single-quote {}",
     "precommit": "pretty-quick --staged"
