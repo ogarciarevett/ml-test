@@ -18,6 +18,7 @@ class List extends Component {
         if(this.props.searchVal) this.props.fetchSearch(this.props.searchVal);
     }
     render() {
+        if(this.props.loading) return <p>Loading</p>
         return (
             <ul className={`${styles.List} ${this.props.className}`}>
                 {(this.props.items.length > 0) &&

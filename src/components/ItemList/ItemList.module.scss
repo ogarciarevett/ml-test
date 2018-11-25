@@ -13,10 +13,10 @@ $imageSize: 180px;
     position: relative;
     .priceContainer {
         display: flex;
-        margin-bottom: 32px;
+        margin-bottom: $x2SeparationMargin;
         align-items: center;
         .price {
-            color: $price;
+            color: $darkText;
             font-size: 24px;
             margin: 0;
             text-decoration: none;

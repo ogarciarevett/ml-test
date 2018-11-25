@@ -8,15 +8,15 @@ const ItemList = props => (
   <li className={styles.ItemList}>
     <Link to={`items/${props.id}`}>
         <img
-        className={styles.ItemImg}
-        src={props.picture}
-        alt={`${props.id}-img`}
+          className={styles.ItemImg}
+          src={props.picture}
+          alt={`${props.id}-img`}
         />
     </Link>
     <div className={styles.itemDetails}>
       <div className={styles.priceContainer}>
         <Link to={`items/${props.id}`} className={styles.price}>
-          {props.price.currency === "ARS" ? "$ " : "$USD"} {props.price.amount}
+          {props.price.currency === "ARS" ? "$ " : "$USD"} {Math.ceil(props.price.amount)}
         </Link>
         {props.freeShipping ? (
           <img

@@ -7,11 +7,11 @@ class Item {
             amount: data.price,
             decimals: this.getDecimal(data.price),
         };
-        this.picture = data.thumbnail;
+        this.picture = data.idPicture || data.thumbnail;
         this.condition = data.condition;
         this.free_shipping = data.shipping.free_shipping;
         this.sold_quantity = data.sold_quantity || 0;
-        this.decription = data.description || '';
+        this.description = data.description || '';
     }
 
     getDecimal(amount) {

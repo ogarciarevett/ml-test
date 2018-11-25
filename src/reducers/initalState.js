@@ -1,6 +1,6 @@
 export default {
     payload: null,
-    details: null,
+    details: {},
     loading: false,
     error: null
 }
