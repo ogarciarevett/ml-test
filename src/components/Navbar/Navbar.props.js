@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export const props = {
-    goToRoute: PropTypes.func.isRequired,
-    className: PropTypes.string,
-    searchVal: PropTypes.string,
+  goToRoute: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  searchVal: PropTypes.string
 };

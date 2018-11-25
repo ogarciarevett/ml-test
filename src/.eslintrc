@@ -1,3 +1,7 @@
 {
-    "extends": "react-app"
+  "extends": "react-app",
+  "plugins": ["prettier"],
+  "rules": {
+    "indent": [0, 2]
+  }
 }

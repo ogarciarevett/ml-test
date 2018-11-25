@@ -1,42 +1,40 @@
 import React, { Component } from "react";
-import ItemList from '../ItemList';
-import { props } from './List.props';
+import ItemList from "../ItemList";
+import { props } from "./List.props";
 import styles from "./List.module.scss";
 
 class List extends Component {
-    state = {
-        search: this.props.searchVal
+  state = {
+    search: this.props.searchVal
+  };
+  static getDerivedStateFromProps(props, state) {
+    if (props.searchVal !== state.search) {
+      props.fetchSearch(props.searchVal);
+      return { search: props.searchVal };
     }
-    static getDerivedStateFromProps(props, state) {
-        if(props.searchVal !== state.search) {
-            props.fetchSearch(props.searchVal);
-            return { search: props.searchVal };
-        }
-        return null;
-    }
-    componentDidMount() {
-        if(this.props.searchVal) this.props.fetchSearch(this.props.searchVal);
-    }
-    render() {
-        if(this.props.loading) return <p>Loading</p>
-        return (
-            <ul className={`${styles.List} ${this.props.className}`}>
-                {(this.props.items.length > 0) &&
-                    this.props.items.map(x => (
-                            <ItemList
-                                id={x.id}
-                                key={x.id} 
-                                title={x.title}
-                                price={x.price} 
-                                picture={x.picture}
-                                freeShipping={x.free_shipping}
-                            />
-                        )
-                    )
-                }
-            </ul>
-        );
-    }
+    return null;
+  }
+  componentDidMount() {
+    if (this.props.searchVal) this.props.fetchSearch(this.props.searchVal);
+  }
+  render() {
+    if (this.props.loading) return <p>Loading</p>;
+    return (
+      <ul className={`${styles.List} ${this.props.className}`}>
+        {this.props.items.length > 0 &&
+          this.props.items.map(x => (
+            <ItemList
+              id={x.id}
+              key={x.id}
+              title={x.title}
+              price={x.price}
+              picture={x.picture}
+              freeShipping={x.free_shipping}
+            />
+          ))}
+      </ul>
+    );
+  }
 }
 
 List.propTypes = props;

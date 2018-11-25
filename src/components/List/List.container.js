@@ -1,16 +1,19 @@
-import { connect } from 'react-redux';
-import { fetchSearch } from '../../actions';
-import { convertQueryToString } from '../../utils/parser';
-import List from './List';
+import { connect } from "react-redux";
+import { fetchSearch } from "../../actions";
+import { convertQueryToString } from "../../utils/parser";
+import List from "./List";
 
 const mapStateToProps = state => ({
-    items: state.app.payload ? state.app.payload.items : [],
-    loading: state.app.loading,
-    searchVal: convertQueryToString(state.router.location.search)
+  items: state.app.payload ? state.app.payload.items : [],
+  loading: state.app.loading,
+  searchVal: convertQueryToString(state.router.location.search)
 });
 
 const mapDispatchToProps = {
-    fetchSearch
+  fetchSearch
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(List);
