@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { parseAmount, parseDecimals } from "../../utils/parser";
+import Loading from "../../components/Loading";
 import { props } from "./Details.props";
 import styles from "./Details.module.scss";
+import NotFoundMsj from "../../components/NotFound/NotFoundMsj";
 
 class Details extends Component {
   componentDidMount() {
@@ -9,7 +11,9 @@ class Details extends Component {
     if (id) this.props.fetchDetails(id);
   }
   render() {
-    if (this.props.loading) return <p>Loading</p>;
+    if (this.props.loading) return <Loading loading={this.props.loading} />;
+    if (this.props.error && this.props.error.response.status === 404)
+      return <NotFoundMsj />;
     const { details } = this.props;
     return (
       <div className={styles.Details}>
@@ -40,7 +44,14 @@ class Details extends Component {
               <span>{parseDecimals(details.price.decimals)}</span>
             </p>
           )}
-          <button className={styles.buyBtn}>Comprar</button>
+          <a
+            rel="noopener noreferrer"
+            className={styles.buyBtn}
+            href={details.permalink}
+            target="_blank"
+          >
+            Comprar
+          </a>
         </div>
       </div>
     );

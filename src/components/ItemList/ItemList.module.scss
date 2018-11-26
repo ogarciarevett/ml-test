@@ -1,51 +1,70 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 $imageSize: 180px;
-.ItemList {
-    display: flex;
-    background: white;
-    align-items: center;
-    min-height: $imageSize + $separationMargin;
-    padding: $separationMargin;
-    border-radius: 2px;
-    flex-basis: 100%;
-    flex-wrap: wrap;
-    position: relative;
-    .priceContainer {
-        display: flex;
-        margin-bottom: $x2SeparationMargin;
-        align-items: center;
-        .price {
-            color: $darkText;
-            font-size: 24px;
-            margin: 0;
-            text-decoration: none;
 
-        }
-        .shippingIc {
-            margin-left: 10px;
-            width: 18px;
-            height: 18px;
-        }
+.linkContainer {
+  text-decoration: none;
+}
+.ItemList {
+  display: flex;
+  background: white;
+  align-items: center;
+  min-height: $imageSize + $separationMargin;
+  padding: $separationMargin;
+  border-radius: 2px;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  position: relative;
+  text-decoration: none;
+  .priceContainer {
+    display: flex;
+    margin-bottom: $x2SeparationMargin;
+    align-items: center;
+    .price {
+      color: $darkText;
+      font-size: 24px;
+      margin: 0;
+      text-decoration: none;
     }
-    .title {
-        font-size: 18px;
-        color: $title;
+    .shippingIc {
+      margin-left: 10px;
+      width: 18px;
+      height: 18px;
     }
-    .ItemImg {
-        margin-right: $separationMargin;
-        width: $imageSize;
-        height: $imageSize;
-        border-radius: 4px;
-    }
-    &:after {
-        content: "";
-        position: absolute;
-        left: 24px;
-        bottom: 0;
-        height: 1px;
-        width: 94.5%;
-        border-bottom: 1px solid #eee;
-    }
+  }
+  .title {
+    font-size: 18px;
+    color: $title;
+  }
+  .ItemImg {
+    margin-right: $separationMargin;
+    width: $imageSize;
+    height: $imageSize;
+    border-radius: 4px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    bottom: 0;
+    height: 1px;
+    width: 94.5%;
+    border-bottom: 1px solid #eee;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    background: lighten($title, 58%);
+  }
 }
 
+@media only screen and (max-width: $minimalMQ) {
+  .ItemList {
+    justify-content: center;
+    flex-direction: column;
+    .ItemImg {
+      margin-bottom: $separationMargin;
+      margin-right: 0;
+    }
+  }
+}

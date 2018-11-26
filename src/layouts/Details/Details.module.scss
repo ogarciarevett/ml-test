@@ -10,7 +10,8 @@
   .detailsProduct {
     display: flex;
     flex-direction: column;
-    flex-basis: 170%;
+    flex-basis: 100%;
+    margin-right: $separationMargin;
   }
 
   .detailsInfo {
@@ -19,6 +20,7 @@
   }
 
   .descriptionTitle {
+    margin-top: $separationMargin;
     font-size: 28px;
   }
 
@@ -59,7 +61,9 @@
     cursor: pointer;
     color: white;
     font-size: 16px;
-    width: calc(100% - #{$x2SeparationMargin});
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
     border: none;
     &:focus {
       outline: none;
@@ -72,7 +76,7 @@
   height: auto;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: $minimalMQ) {
   .detailsPicture {
     width: 100%;
   }

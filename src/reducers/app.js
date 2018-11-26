@@ -6,7 +6,8 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        payload: action.payload
+        payload: action.payload,
+        error: null
       };
     }
 
@@ -29,7 +30,8 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        details: action.details
+        details: action.details,
+        error: null
       };
     }
 

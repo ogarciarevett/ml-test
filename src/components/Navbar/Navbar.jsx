@@ -7,7 +7,8 @@ import icSearch from "../../assets/ic_Search.png";
 
 class NavBar extends Component {
   state = {
-    queryVal: this.props.searchVal || ""
+    queryVal: this.props.searchVal || "",
+    placeHolderVal: "Nunca dejes de buscar"
   };
 
   handleOnChange = e => {
@@ -22,6 +23,12 @@ class NavBar extends Component {
   };
 
   render() {
+    let errorClass,
+      errorMsj = null;
+    if (this.props.error && this.props.error.response.status === 400) {
+      errorClass = styles.errorSearch;
+      errorMsj = "Por favor, coloque un valor valido para buscar";
+    }
     return (
       <div className={`${styles.NavBar} ${this.props.className}`}>
         <Link to="/">
@@ -30,9 +37,9 @@ class NavBar extends Component {
         <form className={styles.searchForm} onSubmit={this.handleOnSubmit}>
           <input
             onChange={this.handleOnChange}
-            className={styles.searchInput}
+            className={`${styles.searchInput} ${errorClass}`}
             value={this.state.queryVal}
-            placeholder="Nunca dejes de buscar"
+            placeholder={errorMsj || this.state.placeHolderVal}
           />
           <button type="submit" className={styles.searchButton}>
             <img

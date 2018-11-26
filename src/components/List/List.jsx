@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ItemList from "../ItemList";
+import Loading from "../Loading";
+import NotFoundMsj from "../NotFound/NotFoundMsj";
 import { props } from "./List.props";
 import styles from "./List.module.scss";
 
@@ -15,13 +17,14 @@ class List extends Component {
     return null;
   }
   componentDidMount() {
-    if (this.props.searchVal) this.props.fetchSearch(this.props.searchVal);
+    if (this.props.searchVal || this.props.searchVal === "")
+      this.props.fetchSearch(this.props.searchVal);
   }
   render() {
-    if (this.props.loading) return <p>Loading</p>;
+    if (this.props.loading) return <Loading loading={this.props.loading} />;
     return (
       <ul className={`${styles.List} ${this.props.className}`}>
-        {this.props.items.length > 0 &&
+        {this.props.items.length > 0 ? (
           this.props.items.map(x => (
             <ItemList
               id={x.id}
@@ -31,7 +34,10 @@ class List extends Component {
               picture={x.picture}
               freeShipping={x.free_shipping}
             />
-          ))}
+          ))
+        ) : (
+          <NotFoundMsj />
+        )}
       </ul>
     );
   }

@@ -4,7 +4,8 @@ import { convertQueryToString } from "../../utils/parser";
 import Navbar from "./Navbar";
 
 const mapStateToProps = state => ({
-  searchVal: convertQueryToString(state.router.location.search) || ""
+  searchVal: convertQueryToString(state.router.location.search) || "",
+  error: state.app.error
 });
 
 const mapDispatchToProps = {

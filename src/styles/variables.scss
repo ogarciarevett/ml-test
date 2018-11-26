@@ -1,11 +1,14 @@
-$primary: #FFE600;
+$primary: #ffe600;
 $darkText: #333333;
 $title: #666666;
 $grey: #999999;
-$lightGrey: #EEEEEE;
-$lightShaddow: rgba(0,0,0,.1);
+$lightGrey: #eeeeee;
+$lightShaddow: rgba(0, 0, 0, 0.1);
 
-$buttonBg: #3483FA;
+$buttonBg: #3483fa;
 
 $separationMargin: 16px;
 $x2SeparationMargin: 32px;
+
+// Media Queries
+$minimalMQ: 1200px;
