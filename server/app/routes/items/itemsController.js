@@ -1,21 +1,21 @@
-const debug = require("debug")("mlgateway:itemsController");
-const axios = require("axios");
-const devConsole = require("app/utils/devConsole");
-const baseURL = require("config").get("mlAPI.baseURL");
-const author = require("config").get("mlAPI.defaultAuthor");
-const { totalItemsBySearch } = require("config").get("mlAPI.testLimits");
-const Item = require("app/resources/item");
+const debug = require('debug')('mlgateway:itemsController');
+const axios = require('axios');
+const devConsole = require('app/utils/devConsole');
+const baseURL = require('config').get('mlAPI.baseURL');
+const author = require('config').get('mlAPI.defaultAuthor');
+const { totalItemsBySearch } = require('config').get('mlAPI.testLimits');
+const Item = require('app/resources/item');
 
 class ItemController {
   static async getAll(query) {
     try {
       const responseML = await axios.get(
-        `${baseURL}/sites/MLA/search?q=${query}`
+        `${baseURL}/sites/MLA/search?q=${query}`,
       );
       debug(
         `${devConsole.success(
-          `mercadolibre success request to /sites/MLA/search?q=${query}`
-        )}`
+          `mercadolibre success request to /sites/MLA/search?q=${query}`,
+        )}`,
       );
       const responseTest = responseML.data.results.slice(0, totalItemsBySearch);
       const categories = responseTest.map(x => x.category_id);
@@ -38,20 +38,20 @@ class ItemController {
     try {
       const responseItemML = await axios.get(`${baseURL}/items/${id}`);
       const responseItemMLDesc = await axios.get(
-        `${baseURL}/items/${id}/description`
+        `${baseURL}/items/${id}/description`,
       );
       debug(
         `${devConsole.success(
-          `mercadolibre success request to /items/${id} and /description`
-        )}`
+          `mercadolibre success request to /items/${id} and /description`,
+        )}`,
       );
       const itemResponse = new Item({
         ...responseItemML.data,
         description:
           responseItemMLDesc.data.plain_text ||
           responseItemMLDesc.data.text ||
-          "Sin descripción",
-        idPicture: responseItemML.data.pictures[0].secure_url
+          'Sin descripción',
+        idPicture: responseItemML.data.pictures[0].secure_url,
       });
       return itemResponse;
     } catch (error) {

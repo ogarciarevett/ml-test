@@ -5,23 +5,24 @@ class Item {
     this.price = {
       currency: data.currency_id,
       amount: data.price,
-      decimals: this.getDecimal(data.price)
+      decimals: this.getDecimal(data.price),
     };
     this.permalink = data.permalink;
     this.picture = data.idPicture || data.thumbnail;
     this.condition = data.condition;
     this.free_shipping = data.shipping.free_shipping;
     this.sold_quantity = data.sold_quantity || 0;
-    this.description = data.description || "";
+    this.address = data.address ? data.address.city_name : '';
+    this.description = data.description || '';
   }
 
   getDecimal(amount) {
     return parseInt(
       amount
         .toFixed(2)
-        .split(".")
+        .split('.')
         .pop(),
-      10
+      10,
     );
   }
 }

@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 export const props = {
   className: PropTypes.string,
@@ -6,7 +6,8 @@ export const props = {
   price: PropTypes.shape({
     amount: PropTypes.number,
     currency: PropTypes.string,
-    decimals: PropTypes.number
+    decimals: PropTypes.number,
   }).isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
 };

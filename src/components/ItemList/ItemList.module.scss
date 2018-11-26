@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 $imageSize: 180px;
 
@@ -16,6 +16,12 @@ $imageSize: 180px;
   flex-wrap: wrap;
   position: relative;
   text-decoration: none;
+  color: $grey;
+  .itemDetails {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 85%;
+  }
   .priceContainer {
     display: flex;
     margin-bottom: $x2SeparationMargin;
@@ -35,6 +41,7 @@ $imageSize: 180px;
   .title {
     font-size: 18px;
     color: $title;
+    margin-top: 0;
   }
   .ItemImg {
     margin-right: $separationMargin;
@@ -42,15 +49,23 @@ $imageSize: 180px;
     height: $imageSize;
     border-radius: 4px;
   }
+  .addressInfo {
+    margin-bottom: 0;
+    font-size: 12px;
+    margin-top: 0;
+    text-align: right;
+  }
   &:after {
-    content: "";
+    content: '';
     position: absolute;
-    left: 24px;
+    left: 0;
+    right: 0;
     bottom: 0;
     height: 1px;
-    width: 94.5%;
+    width: 97%;
     border-bottom: 1px solid #eee;
     transition: 0.3s;
+    margin: 0 auto;
   }
 
   &:hover {

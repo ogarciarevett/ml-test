@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import ItemList from "../ItemList";
-import Loading from "../Loading";
-import NotFoundMsj from "../NotFound/NotFoundMsj";
-import { props } from "./List.props";
-import styles from "./List.module.scss";
+import React, { Component } from 'react';
+import ItemList from '../ItemList';
+import Loading from '../Loading';
+import NotFoundMsj from '../NotFound/NotFoundMsj';
+import { props } from './List.props';
+import styles from './List.module.scss';
 
 class List extends Component {
   state = {
-    search: this.props.searchVal
+    search: this.props.searchVal,
   };
   static getDerivedStateFromProps(props, state) {
     if (props.searchVal !== state.search) {
@@ -17,7 +17,7 @@ class List extends Component {
     return null;
   }
   componentDidMount() {
-    if (this.props.searchVal || this.props.searchVal === "")
+    if (this.props.searchVal || this.props.searchVal === '')
       this.props.fetchSearch(this.props.searchVal);
   }
   render() {
@@ -33,6 +33,7 @@ class List extends Component {
               price={x.price}
               picture={x.picture}
               freeShipping={x.free_shipping}
+              address={x.address}
             />
           ))
         ) : (
