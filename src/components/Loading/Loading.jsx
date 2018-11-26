@@ -1,13 +1,13 @@
-import React from "react";
-import { ClipLoader } from "react-spinners";
-import styles from "./Loading.module.scss";
+import React from 'react';
+import { ClipLoader } from 'react-spinners';
+import styles from './Loading.module.scss';
 
 const Loading = ({ loading }) => (
   <div className={styles.Loading}>
     <ClipLoader
-      sizeUnit={"px"}
+      sizeUnit={'px'}
       size={150}
-      color={"#FFE600"}
+      color={'#3483fa'}
       loading={loading}
     />
   </div>
