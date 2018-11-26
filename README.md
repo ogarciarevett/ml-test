@@ -5,7 +5,6 @@ Test for ML in React + Express API by [Omar Garcia](https://github.com/ogarciare
 ## SOFTWARE REQUIREMENTS
 
 node >= 9@any\
-<--------------------------------------------------->
 
 # BACKEND / API
 
@@ -37,7 +36,6 @@ Check the status of the api using the endpoint `/health` -> `http://localhost:70
 
 For that reason I used [helmet](https://github.com/helmetjs/helmet)
 in this test.\
-<-------------------------------------------------------------->
 
 # FRONTEND
 
