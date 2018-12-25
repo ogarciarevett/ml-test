@@ -1,6 +1,6 @@
 # ml-test
 
-Test for ML in React + Express API by [Omar Garcia](https://github.com/ogarciarevett)
+Test for ML in React and Redux + Express API by [Omar Garcia](https://github.com/ogarciarevett)
 
 ## SOFTWARE REQUIREMENTS
 
@@ -10,7 +10,7 @@ node >= 9@any\
 
 Ok, how test this little API?
 
-just go to the **/server** using the terminal and run `npm run server` or `yarn server`
+just go to the **/server** using the terminal and run `npm run start` or `yarn start`
 
 # API - extra features
 
