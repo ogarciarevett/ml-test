@@ -29,7 +29,7 @@ $imageSize: 180px;
     .price {
       color: $darkText;
       font-size: 24px;
-      margin: 0;
+      margin: $separationMargin 0 0 0;
       text-decoration: none;
     }
     .shippingIc {

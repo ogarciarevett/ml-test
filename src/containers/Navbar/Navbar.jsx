@@ -22,6 +22,12 @@ class NavBar extends Component {
     this.props.goToRoute(route);
   };
 
+  componentDidMount() {
+    if (this.props.searchVal) {
+      this.props.goToRoute(`/items?search=${this.props.searchVal}`);
+    }
+  }
+
   render() {
     let errorClass,
       errorMsj = null;
@@ -40,8 +46,8 @@ class NavBar extends Component {
     }
     return (
       <div className={`${styles.NavBar} ${this.props.className}`}>
-        <Link to='/'>
-          <img src={logo} className={styles.logo} alt='logo' />
+        <Link to="/">
+          <img src={logo} className={styles.logo} alt="logo" />
         </Link>
         <form className={styles.searchForm} onSubmit={this.handleOnSubmit}>
           <input
@@ -50,10 +56,10 @@ class NavBar extends Component {
             value={this.state.queryVal}
             placeholder={errorMsj || this.state.placeHolderVal}
           />
-          <button type='submit' className={styles.searchButton}>
+          <button type="submit" className={styles.searchButton}>
             <img
               src={icSearch}
-              alt='icon-search'
+              alt="icon-search"
               className={styles.iconSearch}
             />
           </button>

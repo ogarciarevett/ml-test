@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import NavBar from "../../components/Navbar";
-import styles from "./Main.module.scss";
+import React, { Component } from 'react';
+import NavBar from '../../containers/Navbar';
+import styles from './Main.module.scss';
 
 class Main extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ItemList from '../ItemList';
-import Loading from '../Loading';
-import NotFoundMsj from '../NotFound/NotFoundMsj';
+import ItemList from '../../components/ItemList';
+import Loading from '../../components/Loading';
+import NotFoundMsj from '../../components/NotFound/NotFoundMsj';
 import { props } from './List.props';
 import styles from './List.module.scss';
 
@@ -24,7 +24,7 @@ class List extends Component {
     if (this.props.loading) return <Loading loading={this.props.loading} />;
     return (
       <ul className={`${styles.List} ${this.props.className}`}>
-        {this.props.items.length > 0 ? (
+        {this.props.items.length > 0 && !this.props.errorSearch ? (
           this.props.items.map(x => (
             <ItemList
               id={x.id}
