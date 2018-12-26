@@ -1,9 +1,11 @@
-import { combineReducers } from "redux";
-import appReducer from "./app";
-import { connectRouter } from "connected-react-router";
+import { combineReducers } from 'redux';
+import detailsReducer from './details.reducer';
+import searchReducer from './search.reducer';
+import { connectRouter } from 'connected-react-router';
 
 export default history =>
   combineReducers({
-    app: appReducer,
-    router: connectRouter(history)
+    search: searchReducer,
+    details: detailsReducer,
+    router: connectRouter(history),
   });
