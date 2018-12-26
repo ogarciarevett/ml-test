@@ -4,7 +4,7 @@ import { convertQueryToString } from '../../utils/parser';
 import Navbar from './Navbar';
 
 const mapStateToProps = state => ({
-  searchVal: convertQueryToString(state.router.location.search) || 'Iphone X',
+  searchVal: convertQueryToString(state.router.location.search) || 'Javascript',
   error: state.search.error,
 });
 

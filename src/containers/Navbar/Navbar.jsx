@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { props } from './Navbar.props';
 import styles from './Navbar.module.scss';
 import logo from '../../assets/Logo_ML.png';
@@ -46,9 +45,7 @@ class NavBar extends Component {
     }
     return (
       <div className={`${styles.NavBar} ${this.props.className}`}>
-        <Link to="/">
-          <img src={logo} className={styles.logo} alt="logo" />
-        </Link>
+        <img src={logo} className={styles.logo} alt="logo" />
         <form className={styles.searchForm} onSubmit={this.handleOnSubmit}>
           <input
             onChange={this.handleOnChange}
