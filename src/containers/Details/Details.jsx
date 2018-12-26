@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { parseAmount, parseDecimals } from "../../utils/parser";
-import Loading from "../../components/Loading";
-import { props } from "./Details.props";
-import styles from "./Details.module.scss";
-import NotFoundMsj from "../../components/NotFound/NotFoundMsj";
+import React, { Component } from 'react';
+import { parseAmount, parseDecimals } from '../../utils/parser';
+import Loading from '../../components/Loading';
+import { props, defaultProps } from './Details.props';
+import styles from './Details.module.scss';
+import NotFoundMsj from '../../components/NotFound/NotFoundMsj';
 
 class Details extends Component {
   componentDidMount() {
@@ -25,21 +25,21 @@ class Details extends Component {
           />
           <div className={styles.desc}>
             <h1 className={styles.descriptionTitle}>
-              {" "}
-              Descripción del producto{" "}
+              {' '}
+              Descripción del producto{' '}
             </h1>
             <p className={styles.description}>{details.description}</p>
           </div>
         </div>
         <div className={styles.detailsInfo}>
           <p className={styles.conditions}>
-            {details.condition === "new" ? "Nuevo" : "Usado"} -{" "}
+            {details.condition === 'new' ? 'Nuevo' : 'Usado'} -{' '}
             {details.sold_quantity} vendidos
           </p>
           <p className={styles.title}>{details.title}</p>
           {details.price && (
             <p className={styles.detailsPrice}>
-              {details.price.currency === "ARS" ? "$ " : "$USD"}
+              {details.price.currency === 'ARS' ? '$ ' : '$USD'}
               {parseAmount(details.price.amount)}
               <span>{parseDecimals(details.price.decimals)}</span>
             </p>
@@ -59,5 +59,6 @@ class Details extends Component {
 }
 
 Details.propTypes = props;
+Details.defaultProps = defaultProps;
 
 export default Details;

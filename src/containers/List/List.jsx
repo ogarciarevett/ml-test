@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ItemList from '../../components/ItemList';
 import Loading from '../../components/Loading';
 import NotFoundMsj from '../../components/NotFound/NotFoundMsj';
-import { props } from './List.props';
+import { props, defaultProps } from './List.props';
 import styles from './List.module.scss';
 
 class List extends Component {
@@ -45,5 +45,6 @@ class List extends Component {
 }
 
 List.propTypes = props;
+List.defaultProps = defaultProps;
 
 export default List;

@@ -11,3 +11,9 @@ export const props = {
   title: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
 };
+
+export const defaultProps = {
+  price: {
+    currency: 'ARS',
+  },
+};

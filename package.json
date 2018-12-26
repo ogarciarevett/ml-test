@@ -6,6 +6,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
+    "coverage": "node scripts/test.js --coverage",
     "format:js": "find src -name '*.js|jsx' | xargs -I{} ./node_modules/.bin/prettier --write --single-quote {}",
     "format:jsx": "find src -name '*.jsx' | xargs -I{} ./node_modules/.bin/prettier --write --single-quote {}"
   },
@@ -81,10 +82,13 @@
   ],
   "devDependencies": {
     "@storybook/react": "^4.0.8",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint-plugin-prettier": "^3.0.0",
     "prettier": "1.15.2",
     "react-perf-devtool": "^3.1.8",
-    "redux-devtools-extension": "^2.13.5"
+    "redux-devtools-extension": "^2.13.5",
+    "sinon": "^7.2.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -93,7 +97,8 @@
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
-      "react-app-polyfill/jsdom"
+      "react-app-polyfill/jsdom",
+      "./config/jest/adapter"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",

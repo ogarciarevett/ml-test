@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { props } from './ItemList.props';
+import { props, defaultProps } from './ItemList.props';
 import styles from './ItemList.module.scss';
 import freeShippingIc from '../../assets/ic_shipping.png';
 
@@ -22,7 +22,7 @@ const ItemList = props => (
             <img
               className={styles.shippingIc}
               src={freeShippingIc}
-              alt='free-shipping'
+              alt="free-shipping"
             />
           ) : null}
         </div>
@@ -35,5 +35,5 @@ const ItemList = props => (
 );
 
 ItemList.propTypes = props;
-
+ItemList.defaultProps = defaultProps;
 export default ItemList;
