@@ -19,8 +19,8 @@ const swaggerUsers = config.get('swagger.users');
 const swaggerSpec = swaggerJSDoc(config.get('swagger.options'));
 
 app.get('/api-docs.json', basicAuth({ users: swaggerUsers, challenge: true }), (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(swaggerSpec);
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
 });
 app.use('/docs', basicAuth({ users: swaggerUsers, challenge: true }), swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
@@ -37,6 +37,9 @@ routes(app, express);
 
 app.use(errorHandler());
 
-app.listen(port, () => {
-    debug(`server listening on port : ${port}`);
+const server = app.listen(port, () => {
+  debug(`server listening on port : ${port}`);
 });
+
+// Test purpose
+module.exports = server;

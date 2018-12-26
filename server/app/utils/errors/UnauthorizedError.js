@@ -1,6 +1,6 @@
 const { UNAUTHORIZED } = require('http-status-codes');
 
-class ServerError extends Error {
+class UnauthorizedError extends Error {
   constructor(param = '') {
     const message = param instanceof Error ? param.message : param;
     super(message);
@@ -10,4 +10,4 @@ class ServerError extends Error {
   }
 }
 
-module.exports = ServerError;
+module.exports = UnauthorizedError;

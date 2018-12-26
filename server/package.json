@@ -8,11 +8,18 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=mlgateway:* nodemon server",
-    "start": "NODE_ENV=production DEBUG=mlgateway:* node server"
+    "start": "NODE_ENV=production DEBUG=mlgateway:* node server",
+    "test": "NODE_ENV=test npm run test:unit && npm run test:integration",
+    "test:unit": "NODE_ENV=test mocha tests/unit/* --recursive -t 30000 --exit",
+    "test:unit:watch": "NODE_ENV=test mocha tests/unit/* --watch --recursive -t 30000 --exit",
+    "test:integration": "NODE_ENV=test mocha tests/integration/* --recursive -t 30000 --exit",
+    "test:integration:watch": "NODE_ENV=test mocha tests/integration/* --watch --recursive -t 30000 --exit",
+    "coverage": "node node_modules/nyc/bin/nyc npm test"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
     "chalk": "^2.4.1",
     "config": "^3.0.0",
     "cors": "^2.8.5",
@@ -23,17 +30,19 @@
     "helmet": "^3.15.0",
     "http-status-codes": "^1.3.0",
     "joi": "^14.1.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.6",
+    "nyc": "^13.1.0",
     "rootpath": "^0.1.2",
+    "sinon": "^7.2.2",
     "swagger-jsdoc": "^3.2.4",
     "swagger-ui-express": "^4.0.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "dumper.js": "^1.3.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-import": "^0.13.0",
     "eslint-config-promise": "^1.2.6",
-    "mocha": "^5.2.0",
     "supertest": "^3.3.0"
   }
 }
